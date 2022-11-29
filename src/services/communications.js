@@ -1,5 +1,7 @@
 import axios from "axios"
-const baseUrl = "https://phonebook-ci.fly.dev/api/persons"
+
+const PORT = process.env.PORT || 3001
+const baseUrl = `http://localhost:${PORT}/api/persons`
 
 const getAll = () => {
     const request = axios.get(baseUrl)
