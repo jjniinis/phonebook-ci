@@ -31,6 +31,10 @@ processes = []
   [[services.ports]]
     handlers = ["tls", "http"]
     port = 443
+	
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 3001
 
   [[services.tcp_checks]]
     grace_period = "1s"
