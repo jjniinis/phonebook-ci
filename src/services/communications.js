@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const PORT = process.env.REACT_APP_PORT || 8080
-const baseUrl = `http://localhost:${PORT}/api/persons`
+const baseUrl = `https://localhost:${PORT}/api/persons`
 console.log(`env port value: ${process.env.REACT_APP_PORT}`)
 console.log(`baseUrl: ${baseUrl}`)
 
