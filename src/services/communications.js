@@ -1,9 +1,7 @@
 import axios from "axios"
 
-const PORT = process.env.REACT_APP_PORT || 8080
-const baseUrl = `https://localhost:${PORT}/api/persons`
-console.log(`env port value: ${process.env.REACT_APP_PORT}`)
-console.log(`baseUrl: ${baseUrl}`)
+const baseUrl = "https://phonebook-ci.fly.dev/api/persons"
+console.log(`baseUrl for API: ${baseUrl}`)
 
 const getAll = () => {
     const request = axios.get(baseUrl)
