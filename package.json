@@ -15,8 +15,11 @@
   "author": "Juha Niinistö",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "eslint": "^8.22.0",
     "eslint-plugin-react": "^7.31.11",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.19"
   },
   "dependencies": {
@@ -31,8 +34,8 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "engines" : { 
-    "node" : "16.16.0" 
+  "engines": {
+    "node": "16.16.0"
   },
   "browserslist": {
     "production": [
