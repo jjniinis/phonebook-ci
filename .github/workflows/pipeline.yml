@@ -46,15 +46,15 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only -e APP_REVISION=$(git rev-parse --short HEAD)
       
-#  bump_and_tag_version:
-#    needs: [simple_deployment_pipeline]
-#    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip')}}
-#    runs-on: ubuntu-20.04
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Bump version and push tag
-#        uses: anothrNick/github-tag-action@1.36.0
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          DEFAULT_BUMP: patch
+  bump_and_tag_version:
+    needs: [simple_deployment_pipeline]
+    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip')}}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
     
