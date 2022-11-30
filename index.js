@@ -5,6 +5,8 @@ const morgan = require("morgan")
 const cors = require("cors")
 const Person = require("./models/person")
 
+const RELEASE = process.env.APP_REVISION || "Undefined release";
+
 morgan.token("body", function (req) {
     // only show if there is content in body
     if (Object.keys(req.body).length > 0) {
@@ -36,6 +38,16 @@ app.get("/info", (req, res) => {
     Person.find({}).then(persons => {
         res.send(`<div>Phonebook has info for ${persons.length} people.</div><div>${new Date()}</div>`)
     })
+})
+
+// for CI/CD health check
+app.get("/health", (req, res) => {
+    res.send("ok");
+})
+
+// shows the Git hash of deployed version
+app.get('/version', (req, res) => {
+    res.send(`${RELEASE}`)
 })
 
 app.get("/api/persons", (req, res) => {
